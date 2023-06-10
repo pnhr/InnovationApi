@@ -12,14 +12,16 @@ namespace Innovation.Api.Services.Definitions
         {
         }
 
-        public Task<List<Idea>> GetIdeas()
+        public async Task<List<Idea>> GetIdeas()
         {
-            throw new NotImplementedException();
+            var ideas = await Repository.GetAllAsync<Idea>();
+            return ideas.ToList();
         }
 
-        public Task<Idea> GetIdeaByIdeaId(string ideaId)
+        public async Task<Idea> GetIdeaByIdeaId(string ideaRef)
         {
-            throw new NotImplementedException();
+            var idea = await Repository.GetByIdAsync<Idea>(x => x.IdeaRef.ToLower() == ideaRef.ToLower());
+            return idea;
         }
     }
 }

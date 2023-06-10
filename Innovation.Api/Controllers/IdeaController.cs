@@ -20,9 +20,9 @@ namespace Innovation.Api.Controllers
 
         [HttpGet]
         [Route("getideabyideaid")]
-        public async Task<IActionResult> GetIdea(string ideaid)
+        public async Task<IActionResult> GetIdea(string ideaRef)
         {
-            Idea idea = await _ideaService.GetIdeaByIdeaId(ideaid);
+            Idea idea = await _ideaService.GetIdeaByIdeaId(ideaRef);
             return OkWrapper(idea);
         }
 
