@@ -8,7 +8,7 @@ namespace Innovation.Api.AutoMapperProfiles
     {
         public EmployeeAutoMapperProfile()
         {
-            CreateMap<Employee, IdentityVM>()
+            CreateMap<AppUser, IdentityVM>()
                 .ForMember(dest => dest.EmployeeId, opt => opt.MapFrom(src => src.EmployeeId))
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.FirstName))

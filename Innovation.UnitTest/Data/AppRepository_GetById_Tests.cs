@@ -13,7 +13,7 @@
             using (var testDbContext = new TestDbContext(dbOptions))
             {
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
-                Employee emp = repository.GetById<Employee>(1);
+                AppUser emp = repository.GetById<AppUser>(1);
 
                 Assert.Equal("TestOne", emp.FirstName);
             }
@@ -29,9 +29,9 @@
             using (var testDbContext = new TestDbContext(dbOptions))
             {
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
-                StudentSubjectMapping compositKeyTest = repository.GetById<StudentSubjectMapping>(1, 1);
+                IdeaAppUserMapping compositKeyTest = repository.GetById<IdeaAppUserMapping>(1, 1);
 
-                Assert.Equal("One One", compositKeyTest.Message);
+                Assert.Equal(1, compositKeyTest.IdeaId);
             }
         }
     }

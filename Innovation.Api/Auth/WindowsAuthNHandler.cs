@@ -15,7 +15,7 @@ namespace Innovation.Api.Auth
         {
             if (context.User.Identity.IsAuthenticated)
             {
-                var emp = Repository.GetById<Employee>(x => x.UserId.ToLower() == context.User.Identity.Name.ToLower());
+                var emp = Repository.GetById<AppUser>(x => x.UserId.ToLower() == context.User.Identity.Name.ToLower());
                 if (emp != null)
                 {
                     context.Succeed(requirement);

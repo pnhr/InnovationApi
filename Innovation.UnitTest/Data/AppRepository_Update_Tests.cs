@@ -12,12 +12,12 @@
 
             using (var testDbContext = new TestDbContext(dbOptions))
             {
-                Employee emp = new Employee { EmployeeId = 1, UserId = "CORP\\e999999", FirstName = "TestUpdated", LastName = "Updated", CreatedBy = DateTime.Now.ToString() };
+                AppUser emp = new AppUser { EmployeeId = 1, UserId = "CORP\\e999999", FirstName = "TestUpdated", LastName = "Updated", DateUpdated = DateTime.Now };
 
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
                 repository.Update(emp);
 
-                Employee empTest = repository.GetById<Employee>(1);
+                AppUser empTest = repository.GetById<AppUser>(1);
 
                 Assert.Equal("TestUpdated", empTest.FirstName);
             }
@@ -33,12 +33,12 @@
 
             using (var testDbContext = new TestDbContext(dbOptions))
             {
-                Employee emp = new Employee { EmployeeId = 1, UserId = "CORP\\e999999", FirstName = "TestUpdatedAsync", LastName = "Updated", CreatedBy = DateTime.Now.ToString() };
+                AppUser emp = new AppUser { EmployeeId = 1, UserId = "CORP\\e999999", FirstName = "TestUpdatedAsync", LastName = "Updated", DateUpdated = DateTime.Now };
 
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
                 await repository.UpdateAsync(emp);
 
-                Employee empTest = repository.GetById<Employee>(1);
+                AppUser empTest = repository.GetById<AppUser>(1);
 
                 Assert.Equal("TestUpdatedAsync", empTest.FirstName);
             }

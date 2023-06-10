@@ -24,7 +24,7 @@ namespace Innovation.Api.Auth
             }
 
 
-            var emp = Repository.GetById<Employee>(x => x.UserId.ToLower() == userId.Value.ToLower());
+            var emp = Repository.GetById<AppUser>(x => x.UserId.ToLower() == userId.Value.ToLower());
 
             if (emp == null)
             {

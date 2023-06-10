@@ -9,14 +9,13 @@ namespace Innovation.Data.Database
         {
 
         }
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Subject> Subjects { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<StudentSubjectMapping> StudentSubjectMappings { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Idea> Ideas { get; set; }
+        public DbSet<IdeaAppUserMapping> IdeaAppUserMappings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<StudentSubjectMapping>().HasKey(x => new { x.StudId, x.SubId });
+            modelBuilder.Entity<IdeaAppUserMapping>().HasKey(x => new { x.IdeaId, x.EmployeeId });
             base.OnModelCreating(modelBuilder);
         }
     }

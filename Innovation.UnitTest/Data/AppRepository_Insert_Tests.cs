@@ -12,10 +12,10 @@
 
             using (var testDbContext = new TestDbContext(dbOptions))
             {
-                Employee emp = new Employee { UserId = "CORP\\e888888", FirstName = "NewTest", LastName = "Test", CreatedBy = DateTime.Now.ToString() };
+                AppUser emp = new AppUser { UserId = "CORP\\e888888", FirstName = "NewTest", LastName = "Test", DateUpdated = DateTime.Now };
 
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
-                Employee result = repository.Insert(emp);
+                AppUser result = repository.Insert(emp);
 
                 Assert.Equal(4, result.EmployeeId);
             }
@@ -30,14 +30,14 @@
 
             using (var testDbContext = new TestDbContext(dbOptions))
             {
-                List<Employee> empList = new List<Employee>
+                List<AppUser> empList = new List<AppUser>
                 {
-                    new Employee { UserId = "CORP\\e888888", FirstName = "NewTest", LastName = "One", CreatedBy = DateTime.Now.ToString() },
-                    new Employee { UserId = "CORP\\e777777", FirstName = "NewTest", LastName = "Two", CreatedBy = DateTime.Now.ToString() }
+                    new AppUser { UserId = "CORP\\e888888", FirstName = "NewTest", LastName = "One", DateUpdated = DateTime.Now },
+                    new AppUser { UserId = "CORP\\e777777", FirstName = "NewTest", LastName = "Two", DateUpdated = DateTime.Now }
                 };
 
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
-                List<Employee> result = repository.Insert(empList);
+                List<AppUser> result = repository.Insert(empList);
 
                 Assert.Equal(4, result[0].EmployeeId);
                 Assert.Equal(5, result[1].EmployeeId);
@@ -54,10 +54,10 @@
 
             using (var testDbContext = new TestDbContext(dbOptions))
             {
-                Employee emp = new Employee { UserId = "CORP\\e888888", FirstName = "NewTest", LastName = "Test", CreatedBy = DateTime.Now.ToString() };
+                AppUser emp = new AppUser { UserId = "CORP\\e888888", FirstName = "NewTest", LastName = "Test", DateUpdated = DateTime.Now };
 
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
-                Employee result = await repository.InsertAsync(emp);
+                AppUser result = await repository.InsertAsync(emp);
 
                 Assert.Equal(4, result.EmployeeId);
             }
@@ -72,14 +72,14 @@
 
             using (var testDbContext = new TestDbContext(dbOptions))
             {
-                List<Employee> empList = new List<Employee>
+                List<AppUser> empList = new List<AppUser>
                 {
-                    new Employee { UserId = "CORP\\e888888", FirstName = "NewTest", LastName = "One", CreatedBy = DateTime.Now.ToString() },
-                    new Employee { UserId = "CORP\\e777777", FirstName = "NewTest", LastName = "Two", CreatedBy = DateTime.Now.ToString() }
+                    new AppUser { UserId = "CORP\\e888888", FirstName = "NewTest", LastName = "One", DateUpdated = DateTime.Now },
+                    new AppUser { UserId = "CORP\\e777777", FirstName = "NewTest", LastName = "Two", DateUpdated = DateTime.Now }
                 };
 
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
-                List<Employee> result = await repository.InsertAsync(empList);
+                List<AppUser> result = await repository.InsertAsync(empList);
 
                 Assert.Equal(4, result[0].EmployeeId);
                 Assert.Equal(5, result[1].EmployeeId);

@@ -21,7 +21,7 @@ namespace Innovation.Api.AppStart
 
         private static void AddServiceDependencies(this IServiceCollection services)
         {
-            services.AddScoped<ISampleService, SampleService>();
+            services.AddScoped<IIdeaService, IdeaService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IAuthorizationHandler, AppSpecificHandler>();
             services.AddScoped<IAuthorizationHandler, WindowsAuthNHandler>();

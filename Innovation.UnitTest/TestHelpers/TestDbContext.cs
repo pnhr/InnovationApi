@@ -8,7 +8,7 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<StudentSubjectMapping>().HasKey(x => new { x.StudId, x.SubId });
+            modelBuilder.Entity<IdeaAppUserMapping>().HasKey(x => new { x.IdeaId, x.EmployeeId });
             modelBuilder.Seed();
         }
     }

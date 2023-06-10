@@ -13,7 +13,7 @@
             using (var testDbContext = new TestDbContext(dbOptions))
             {
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
-                List<Employee> result = repository.GetAll<Employee>().ToList();
+                List<AppUser> result = repository.GetAll<AppUser>().ToList();
 
                 Assert.Equal(3, result?.Count);
             }
@@ -29,7 +29,7 @@
             using (var testDbContext = new TestDbContext(dbOptions))
             {
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
-                List<Employee> result = repository.GetAll<Employee>(x => x.EmployeeId == 1).ToList();
+                List<AppUser> result = repository.GetAll<AppUser>(x => x.EmployeeId == 1).ToList();
 
                 Assert.Equal(1, result?.Count);
             }
@@ -46,7 +46,7 @@
             using (var testDbContext = new TestDbContext(dbOptions))
             {
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
-                List<Employee> result = (await repository.GetAllAsync<Employee>()).ToList();
+                List<AppUser> result = (await repository.GetAllAsync<AppUser>()).ToList();
 
                 Assert.Equal(3, result?.Count);
             }
@@ -63,7 +63,7 @@
             using (var testDbContext = new TestDbContext(dbOptions))
             {
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
-                List<Employee> result = (await repository.GetAllAsync<Employee>(x => x.EmployeeId == 1)).ToList();
+                List<AppUser> result = (await repository.GetAllAsync<AppUser>(x => x.EmployeeId == 1)).ToList();
 
                 Assert.Equal(1, result?.Count);
             }
