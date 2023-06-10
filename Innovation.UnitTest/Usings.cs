@@ -1,0 +1,13 @@
+global using Innovation.Api.Auth;
+global using Innovation.Data;
+global using Innovation.Data.Database;
+global using Innovation.Data.DbModels;
+global using Innovation.Data.Definitions;
+global using Innovation.UnitTest.TestHelpers;
+global using Microsoft.Data.Sqlite;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Logging;
+global using Moq;
+global using Xunit;
