@@ -8,21 +8,7 @@ namespace Innovation.Api.AppStart
     {
         public static IServiceCollection AddAppAuthorization(this IServiceCollection services, IConfiguration config)
         {
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("AppPolicyName", policy =>
-                {
-                    policy.AuthenticationSchemes.Add(JwtBearerDefaults.AuthenticationScheme);
-                    policy.RequireAuthenticatedUser();
-                    policy.Requirements.Add(new AppSpecificRequirement());
-                });
-
-                options.AddPolicy("Windows", policy =>
-                {
-                    policy.AuthenticationSchemes.Add(NegotiateDefaults.AuthenticationScheme);
-                    policy.Requirements.Add(new WindowsAuthNRequirement());
-                });
-            });
+            services.AddAuthorization();
             return services;
         }
     }

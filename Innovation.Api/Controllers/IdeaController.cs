@@ -8,7 +8,7 @@ namespace Innovation.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Policy = PolicyNames.AppPolicyName)]
+    [Authorize]
     public class IdeaController : AppBaseController
     {
         private readonly IIdeaService _ideaService;
