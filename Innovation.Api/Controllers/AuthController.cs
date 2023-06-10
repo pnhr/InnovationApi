@@ -22,7 +22,6 @@ namespace Innovation.Api.Controllers
 
         [HttpPost]
         [Route("login")]
-        [Authorize(Policy = PolicyNames.Windows)]
         public async Task<IActionResult> Login()
         {
             await _userService.Login(HttpContext);
@@ -31,7 +30,7 @@ namespace Innovation.Api.Controllers
 
         [HttpPost]
         [Route("istokenexpired")]
-        [Authorize(Policy = PolicyNames.AppPolicyName)]
+        //[Authorize(Policy = PolicyNames.AppPolicyName)]
         public async Task<IActionResult> IsTokenExpired()
         {
             bool isTokenExpired = true;
@@ -46,7 +45,7 @@ namespace Innovation.Api.Controllers
 
         [HttpPost]
         [Route("getuserbyjwt")]
-        [Authorize(Policy = PolicyNames.AppPolicyName)]
+        //[Authorize(Policy = PolicyNames.AppPolicyName)]
         public async Task<IActionResult> GetUserByToken()
         {
             if (HttpContext.User.Identity.IsAuthenticated)
