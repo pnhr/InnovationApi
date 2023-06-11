@@ -9,7 +9,7 @@
             builder.Services.AddApplicationObjects();
             builder.Services.AddAuthenticationSchemes(builder.Configuration);
             builder.Services.AddAppAuthorization(builder.Configuration);
-            builder.Services.AddSwaggerWithAutherization();
+            builder.Services.AddSwaggerWithAutherization(builder.Configuration);
             return builder;
         }
     }

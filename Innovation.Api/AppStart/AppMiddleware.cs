@@ -2,7 +2,7 @@
 {
     public static class AppMiddleware
     {
-        public static void AddMiddlewares(this WebApplication app)
+        public static void AddMiddlewares(this WebApplication app, IConfiguration configuration)
         {
             //if (app.Environment.IsDevelopment())
             //{
@@ -16,7 +16,13 @@
             //}
 
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(c =>
+            {
+                c.OAuthClientId(configuration["SwaggerAzureAd:ClientId"]);
+                c.OAuthUsePkce();
+                c.OAuthScopeSeparator(" "); //It is requried only when there are more then one scope exists. in our case we have only one scope and not requried
+
+            });
 
             app.UseHttpsRedirection();
 

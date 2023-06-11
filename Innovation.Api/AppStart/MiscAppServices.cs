@@ -4,21 +4,29 @@ namespace Innovation.Api.AppStart
 {
     public static class MiscAppServices
     {
-        public static void AddSwaggerWithAutherization(this IServiceCollection services)
+        public static void AddSwaggerWithAutherization(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Innovation", Version = "v1" });
 
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
                 {
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer",
-                    BearerFormat = "JWT",
-                    In = ParameterLocation.Header,
-                    Description = "JWT Authorization header using the Bearer scheme."
-
+                    Description = "OAuth2.0 Auth Code with PKCE",
+                    Name = "oauth2",
+                    Type = SecuritySchemeType.OAuth2,
+                    Flows = new OpenApiOAuthFlows
+                    {
+                        AuthorizationCode = new OpenApiOAuthFlow
+                        {
+                            AuthorizationUrl = new Uri(configuration["SwaggerAzureAd:AuthorizationUrl"]),
+                            TokenUrl = new Uri(configuration["SwaggerAzureAd:TokenUrl"]),
+                            Scopes = new Dictionary<string, string>
+                            {
+                                {configuration["SwaggerAzureAd:Scope"], "read the api" }
+                            }
+                        }
+                    }
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
@@ -28,10 +36,10 @@ namespace Innovation.Api.AppStart
                               Reference = new OpenApiReference
                               {
                                   Type = ReferenceType.SecurityScheme,
-                                  Id = "Bearer"
+                                  Id = "oauth2"
                               }
                           },
-                         new string[] {}
+                         new[] { configuration["SwaggerAzureAd:Scope"] }
                     }
                 });
 

@@ -10,7 +10,7 @@ namespace Innovation.Api
             builder.AddSqlServerDatabase()
                     .AddAppServices()
                     .Build()
-                    .AddMiddlewares();
+                    .AddMiddlewares(builder.Configuration);
         }
     }
 }
