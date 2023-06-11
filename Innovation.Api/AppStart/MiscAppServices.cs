@@ -8,7 +8,7 @@ namespace Innovation.Api.AppStart
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Test01", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Innovation", Version = "v1" });
 
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
