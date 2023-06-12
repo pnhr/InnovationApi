@@ -1,6 +1,7 @@
 ﻿using Innovation.Api.Auth;
 using Innovation.Api.Services.Interfaces;
 using Innovation.Data.DbModels;
+using Innovation.Data.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +33,14 @@ namespace Innovation.Api.Controllers
         {
             List<Idea> ideas = await _ideaService.GetIdeas();
             return OkWrapper(ideas);
+        }
+
+        [HttpPost]
+        [Route("createidea")]
+        public async Task<IActionResult> CreateIdeas(IdeaDTO idea)
+        {
+            int ideaid = await _ideaService.CreateIdea(idea);
+            return OkWrapper(true, $"Idea have been created and idead id is : {ideaid}");
         }
     }
 }
