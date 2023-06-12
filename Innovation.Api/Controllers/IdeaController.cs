@@ -40,7 +40,7 @@ namespace Innovation.Api.Controllers
         public async Task<IActionResult> CreateIdeas(IdeaDTO idea)
         {
             int ideaid = await _ideaService.CreateIdea(idea);
-            return OkWrapper(true, $"Idea have been created and idead id is : {ideaid}");
+            return OkWrapper(true, $"Idea have been created and idead id is : {ideaid}", new { ideaid });
         }
     }
 }
