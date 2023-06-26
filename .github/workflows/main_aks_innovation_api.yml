@@ -31,7 +31,7 @@ name: Build and deploy an innovation app to AKS - PROD
 
 on:
   push:
-    branches: ["main"]
+    branches: ["Develop"]
   workflow_dispatch:
 
 # env:
