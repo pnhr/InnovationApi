@@ -27,11 +27,11 @@
 # For more samples to get started with GitHub Action workflows to deploy to Azure, refer to https://github.com/Azure/actions-workflow-samples
 # For more options with the actions used below please refer to https://github.com/Azure/login
 
-name: CICD to AKS - Production
+name: CICD to AKS - Development
 
 on:
   push:
-    branches: ["main"]
+    branches: ["Develop"]
   workflow_dispatch:
 
 # env:
@@ -48,7 +48,7 @@ jobs:
       contents: read
       id-token: write
     runs-on: ubuntu-latest
-    environment: Production
+    environment: Development
     steps:
       # Checks out the repository this file is in
       - uses: actions/checkout@v3
@@ -72,7 +72,7 @@ jobs:
       contents: read
       id-token: write
     runs-on: ubuntu-latest
-    environment: Production
+    environment: Development
     needs: [buildImage]
     steps:
       # Checks out the repository this file is in

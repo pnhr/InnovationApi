@@ -16,7 +16,7 @@ namespace Innovation.Api.Services.Definitions
         public async Task<List<Idea>> GetIdeas()
         {
             var ideas = (await Repository.GetAllAsync<Idea>()).ToList();
-            ideas.ForEach(x => x.IdeaRef = $"{x.IdeaRef} - CICD 1");
+            ideas.ForEach(x => x.IdeaRef = $"{x.IdeaRef} - CICD 2");
             return ideas;
         }
 
