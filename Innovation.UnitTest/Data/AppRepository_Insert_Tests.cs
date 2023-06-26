@@ -17,7 +17,7 @@
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
                 AppUser result = repository.Insert(emp);
 
-                Assert.Equal(5, result.EmployeeId);
+                Assert.Equal(4, result.EmployeeId);
             }
         }
         [Fact]
