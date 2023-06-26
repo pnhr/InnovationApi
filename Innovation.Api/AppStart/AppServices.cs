@@ -1,9 +1,12 @@
-﻿namespace Innovation.Api.AppStart
+﻿using Microsoft.IdentityModel.Logging;
+
+namespace Innovation.Api.AppStart
 {
     public static class AppServices
     {
         public static WebApplicationBuilder AddAppServices(this WebApplicationBuilder builder)
         {
+            IdentityModelEventSource.ShowPII = true;
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
             builder.Services.AddApplicationObjects();

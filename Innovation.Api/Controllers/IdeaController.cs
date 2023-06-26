@@ -4,12 +4,14 @@ using Innovation.Data.DbModels;
 using Innovation.Data.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Web.Resource;
 
 namespace Innovation.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class IdeaController : AppBaseController
     {
         private readonly IIdeaService _ideaService;

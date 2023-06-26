@@ -28,7 +28,7 @@ kind: Service
 metadata:
   name: innovation-api-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: innovation-api-pod
   ports:
