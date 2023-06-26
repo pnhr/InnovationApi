@@ -14,9 +14,9 @@ namespace Innovation.Data.DbModels
         public string? MiddleName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string ManagerUserId { get; set; }
+        public string? ManagerUserId { get; set; }
         public bool IsActive { get; set; }
         public DateTime DateUpdated { get; set; }
-        public string UpdatedBy { get; set; }
+        public string? UpdatedBy { get; set; }
     }
 }

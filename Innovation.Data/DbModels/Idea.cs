@@ -15,6 +15,6 @@ namespace Innovation.Data.DbModels
 
         public bool IsActive { get; set; }
         public DateTime DateUpdated { get; set; }
-        public string UpdatedBy { get; set; }
+        public string? UpdatedBy { get; set; }
     }
 }

@@ -5,20 +5,20 @@
         public static List<AppUser> GetEmployeeTableTestData()
         {
             List<AppUser> employees = new List<AppUser>();
-            employees.Add(new AppUser { UserId = "CORP\\e999999", FirstName = "TestOne", LastName = "One", DateUpdated = DateTime.Now });
-            employees.Add(new AppUser { UserId = "CORP\\e777777", FirstName = "TestTwo", LastName = "Two", DateUpdated = DateTime.Now });
-            employees.Add(new AppUser { UserId = "CORP\\e666666", FirstName = "TestThree", LastName = "Three", DateUpdated = DateTime.Now });
-            employees.Add(new AppUser { UserId = "CORP\\e555555", FirstName = "TestFour", LastName = "Four", DateUpdated = DateTime.Now });
+            employees.Add(new AppUser { EmployeeId = 1, UserId = "CORP\\e999999", FirstName = "TestOne", LastName = "One", Email = "test@test.com", IsActive = true, DateUpdated = DateTime.Now });
+            employees.Add(new AppUser { EmployeeId = 2, UserId = "CORP\\e777777", FirstName = "TestTwo", LastName = "Two", Email = "test@test.com", IsActive = true, DateUpdated = DateTime.Now });
+            employees.Add(new AppUser { EmployeeId = 3, UserId = "CORP\\e666666", FirstName = "TestThree", LastName = "Three", Email = "test@test.com", IsActive = true, DateUpdated = DateTime.Now });
+            employees.Add(new AppUser { EmployeeId = 4, UserId = "CORP\\e555555", FirstName = "TestFour", LastName = "Four", Email = "test@test.com", IsActive = true, DateUpdated = DateTime.Now });
             return employees;
         }
 
         public static List<Idea> GetIdeasTestData()
         {
             List<Idea> data = new List<Idea>();
-            data.Add(new Idea { IdeaRef = "AUT1", IdeaName = "Automation Test one", IdeaDescription = "Test one desc", IsActive = true, DateUpdated = DateTime.Now, UpdatedBy = "unittest" });
-            data.Add(new Idea { IdeaRef = "AUT2", IdeaName = "Automation Test Two", IdeaDescription = "Test one desc", IsActive = true, DateUpdated = DateTime.Now, UpdatedBy = "unittest" });
-            data.Add(new Idea { IdeaRef = "SIM3", IdeaName = "Simplify Room Test one", IdeaDescription = "Test one desc", IsActive = true, DateUpdated = DateTime.Now, UpdatedBy = "unittest" });
-            data.Add(new Idea { IdeaRef = "SIM4", IdeaName = "Simplify Room Test Two", IdeaDescription = "Test one desc", IsActive = true, DateUpdated = DateTime.Now, UpdatedBy = "unittest" });
+            data.Add(new Idea { Id = 1, IdeaRef = "AUT1", IdeaName = "Automation Test one", IdeaDescription = "Test one desc", IsActive = true, DateUpdated = DateTime.Now, UpdatedBy = "unittest" });
+            data.Add(new Idea { Id = 2, IdeaRef = "AUT2", IdeaName = "Automation Test Two", IdeaDescription = "Test one desc", IsActive = true, DateUpdated = DateTime.Now, UpdatedBy = "unittest" });
+            data.Add(new Idea { Id = 3, IdeaRef = "SIM3", IdeaName = "Simplify Room Test one", IdeaDescription = "Test one desc", IsActive = true, DateUpdated = DateTime.Now, UpdatedBy = "unittest" });
+            data.Add(new Idea { Id = 4, IdeaRef = "SIM4", IdeaName = "Simplify Room Test Two", IdeaDescription = "Test one desc", IsActive = true, DateUpdated = DateTime.Now, UpdatedBy = "unittest" });
             return data;
         }
 

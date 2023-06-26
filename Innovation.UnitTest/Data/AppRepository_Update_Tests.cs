@@ -12,7 +12,7 @@
 
             using (var testDbContext = new TestDbContext(dbOptions))
             {
-                AppUser emp = new AppUser { EmployeeId = 1, UserId = "CORP\\e999999", FirstName = "TestUpdated", LastName = "Updated", DateUpdated = DateTime.Now };
+                AppUser emp = new AppUser { EmployeeId = 1, UserId = "CORP\\e999999", FirstName = "TestUpdated", LastName = "Updated", Email="test@test.com", DateUpdated = DateTime.Now };
 
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
                 repository.Update(emp);
@@ -33,7 +33,7 @@
 
             using (var testDbContext = new TestDbContext(dbOptions))
             {
-                AppUser emp = new AppUser { EmployeeId = 1, UserId = "CORP\\e999999", FirstName = "TestUpdatedAsync", LastName = "Updated", DateUpdated = DateTime.Now };
+                AppUser emp = new AppUser { EmployeeId = 1, UserId = "CORP\\e999999", FirstName = "TestUpdatedAsync", LastName = "Updated", Email="test@test.com", DateUpdated = DateTime.Now };
 
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
                 await repository.UpdateAsync(emp);

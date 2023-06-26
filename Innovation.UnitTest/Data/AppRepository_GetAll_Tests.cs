@@ -15,7 +15,7 @@
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
                 List<AppUser> result = repository.GetAll<AppUser>().ToList();
 
-                Assert.Equal(3, result?.Count);
+                Assert.Equal(4, result?.Count);
             }
         }
         [Fact]
@@ -48,7 +48,7 @@
                 AppRepository repository = new AppRepository(testDbContext, mockLogging.Object);
                 List<AppUser> result = (await repository.GetAllAsync<AppUser>()).ToList();
 
-                Assert.Equal(3, result?.Count);
+                Assert.Equal(4, result?.Count);
             }
         }
 
