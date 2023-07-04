@@ -16,10 +16,3 @@ spec:
                 name: innovation-api-service
                 port:
                   number: 80
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: innovation-api-service
-                port:
-                  number: 80
