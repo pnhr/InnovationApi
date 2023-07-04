@@ -33,7 +33,9 @@ namespace Innovation.Api.Controllers
         [Route("getideas")]
         public async Task<IActionResult> GetIdeas()
         {
+            Logger.LogDebug("Entered into getideas action method ###");
             List<Idea> ideas = await _ideaService.GetIdeas();
+            Logger.LogDebug("Returning from getideas action method ###");
             return OkWrapper(ideas);
         }
 
