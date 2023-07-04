@@ -13,8 +13,8 @@ spec:
     spec:
       containers:
         - name: innovation-api-container
-          image: psazdocker.azurecr.io/innovation-api
-          imagePullPolicy: "Always"
+          image: azdockeracr.azurecr.io/innovation-api
+          imagePullPolicy: IfNotPresent
           resources:
             limits:
               memory: "128Mi"
@@ -34,5 +34,5 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: 9080
+      port: 80
       targetPort: 80

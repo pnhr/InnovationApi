@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ps-innovation-ingress
+  name: ps-innovation-api-ingress
 spec:
   ingressClassName: azure-application-gateway
   tls:
@@ -16,10 +16,10 @@ spec:
                 name: innovation-api-service
                 port:
                   number: 80
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: innovation-ui-service
-                port:
-                  number: 80
+          # - path: /
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: innovation-ui-service
+          #       port:
+          #         number: 80
