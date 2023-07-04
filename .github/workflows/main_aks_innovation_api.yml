@@ -109,3 +109,6 @@ jobs:
           manifests: ${{ vars.DEPLOYMENT_MANIFEST_PATH }}
           images: |
             ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.CONTAINER_IMAGE_NAME }}:${{ github.sha }}
+
+      - name: Deploy ingress
+        run: kubectl apply -f ${{ vars.INGRESS_MANIFEST_PATH }}
