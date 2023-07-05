@@ -15,6 +15,9 @@ spec:
         - name: innovation-api-container
           image: azdockeracr.azurecr.io/innovation-api
           imagePullPolicy: IfNotPresent
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
           resources:
             limits:
               memory: "128Mi"
