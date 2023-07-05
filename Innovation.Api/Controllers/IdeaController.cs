@@ -34,7 +34,9 @@ namespace Innovation.Api.Controllers
         public async Task<IActionResult> GetIdeas()
         {
             Logger.LogInformation("Entered into getideas action method ____############____");
-            List<Idea> ideas = await _ideaService.GetIdeas();
+            var env = Configuration["ASPNETCORE_ENVIRONMENT"];
+            Logger.LogInformation($"Current Application Env : {env}");
+            List <Idea> ideas = await _ideaService.GetIdeas();
             Logger.LogInformation("Returning from getideas action method ____############____");
             return OkWrapper(ideas);
         }
