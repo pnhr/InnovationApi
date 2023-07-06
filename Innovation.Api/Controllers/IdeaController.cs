@@ -1,5 +1,6 @@
 ﻿using Innovation.Api.Auth;
 using Innovation.Api.Services.Interfaces;
+using Innovation.Api.Util;
 using Innovation.Data.DbModels;
 using Innovation.Data.Dtos;
 using Microsoft.AspNetCore.Authorization;
@@ -33,11 +34,11 @@ namespace Innovation.Api.Controllers
         [Route("getideas")]
         public async Task<IActionResult> GetIdeas()
         {
-            Logger.LogInformation("Entered into getideas action method ____############____");
+            Logger.LogAppActivityInformation("Entered into getideas action method ____############____");
             var env = Configuration["ASPNETCORE_ENVIRONMENT"];
             Logger.LogInformation($"Current Application Env : {env}");
             List <Idea> ideas = await _ideaService.GetIdeas();
-            Logger.LogInformation("Returning from getideas action method ____############____");
+            Logger.LogAppActivityInformation("Returning from getideas action method ____############____");
             return OkWrapper(ideas);
         }
 
