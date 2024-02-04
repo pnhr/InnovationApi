@@ -8,6 +8,7 @@ namespace Innovation.Data.Constants
 {
     public static class AppConstants
     {
+        public const string APP_CORS_POLICY = "app_cors_policy";
         public const string AuthenticationType = "JwtServerAuth";
         public const int ExpiryTimeInMinutes = 60;
         public const string SUCCESS = "Success!";

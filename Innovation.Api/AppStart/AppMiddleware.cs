@@ -1,4 +1,7 @@
-﻿namespace Innovation.Api.AppStart
+﻿
+using Innovation.Data.Constants;
+
+namespace Innovation.Api.AppStart
 {
     public static class AppMiddleware
     {
@@ -29,6 +32,8 @@
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseCors(AppConstants.APP_CORS_POLICY);
 
             app.UseAuthentication();
             app.UseAuthorization();

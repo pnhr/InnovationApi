@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Logging;
+﻿using Innovation.Data.Constants;
+using Microsoft.IdentityModel.Logging;
 
 namespace Innovation.Api.AppStart
 {
@@ -13,6 +14,20 @@ namespace Innovation.Api.AppStart
             builder.Services.AddAuthenticationSchemes(builder.Configuration);
             builder.Services.AddAppAuthorization(builder.Configuration);
             builder.Services.AddSwaggerWithAutherization(builder.Configuration);
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: AppConstants.APP_CORS_POLICY,
+                                  policy =>
+                                  {
+                                      policy.WithOrigins("http://localhost:3000")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod()
+                                            .AllowCredentials();
+                                  });
+            });
+
+
             return builder;
         }
     }
